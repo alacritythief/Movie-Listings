@@ -1,0 +1,13 @@
+<h2>Movie List:</h2>
+<table>
+  <tr class="top">
+    <td>First</td>
+    <td>Last</td>
+    <td>Team</td>
+  </tr>
+  <% @titles.each do |title| %>
+    <tr>
+      <td><%= title[:title]%></td>
+    </tr>
+  <% end %>
+</table>
