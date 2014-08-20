@@ -13,13 +13,19 @@ end
 def init
   csv_import
 
+  choice = params[:movie_id]
   @titles = []
+  @id = []
 
   @movies.each do |movie|
     @titles << movie[:title]
-    @id << movie[:id]
+    @id << movie if movie[:id] == choice
   end
 
+end
+
+get '/' do
+    redirect "/movies"
 end
 
 get '/movies' do
@@ -27,7 +33,8 @@ get '/movies' do
   erb :movie_list
 end
 
-get 'movies/:movie_id' do
+get '/movies/:movie_id' do
   init
   erb :movie_id
 end
+

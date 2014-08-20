@@ -1,13 +1,11 @@
-<h2>Movie List:</h2>
+<h2>Movie Listings:</h2>
 <table>
   <tr class="top">
-    <td>First</td>
-    <td>Last</td>
-    <td>Team</td>
+    <td>Available Titles</td>
   </tr>
-  <% @titles.each do |title| %>
+  <% @movies.each do |title| %>
     <tr>
-      <td><%= title[:title]%></td>
+      <td><a href="/movies/<%= title[:id] %>"><%= title[:title]%></a></td>
     </tr>
   <% end %>
 </table>

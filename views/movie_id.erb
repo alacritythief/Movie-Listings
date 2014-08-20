@@ -1,0 +1,21 @@
+<h2><%= @id[0][:title] %>:</h2>
+<table>
+  <tr class="top">
+    <td>Title</td>
+    <td>Year</td>
+    <td>Synopsis</td>
+    <td>Rating</td>
+    <td>Genre</td>
+  </tr>
+  <% @id.each do |info| %>
+    <tr>
+      <td><%= info[:title] %></td>
+      <td><%= info[:year] %></td>
+      <td><%= info[:synopsis] %></td>
+      <td><%= info[:rating] %></td>
+      <td><%= info[:genre] %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><a href="/movies"><< Back to Movie Listings</a></p>

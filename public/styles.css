@@ -9,7 +9,7 @@ table, th, td {
 }
 
 .top {
-  background-color: #000;
+  background-color: #666;
   color: #fff;
 }
 
@@ -29,21 +29,21 @@ ul li {
 }
 
 a:link {
-    color: #FF6600;
+    color: #ff55cc;
     text-decoration: none;
 }
 
 a:visited {
-    color: #FF6600;
+    color: #ff55cc;
     text-decoration: none;
 }
 
 a:hover {
-    color: #FF0000;
+    color: #ff55cc;
     text-decoration: underline;
 }
 
 a:active {
-    color: #FF0000;
+    color: #ff55cc;
     text-decoration: underline;
 }
