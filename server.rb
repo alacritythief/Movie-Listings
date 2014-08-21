@@ -1,6 +1,9 @@
 require 'sinatra'
+require 'sinatra/reloader'
 require 'csv'
 require 'pry'
+
+RESULTS_PER_PAGE = 20
 
 def csv_import
   @movies = []
@@ -12,24 +15,37 @@ end
 
 def init
   csv_import
-
   choice = params[:movie_id]
   @titles = []
   @id = []
-
   @movies.each do |movie|
     @titles << movie[:title]
     @id << movie if movie[:id] == choice
   end
+end
 
+def pagination
+  @page = (params[:page] || 1).to_i
+  start = RESULTS_PER_PAGE * (@page - 1)
+  ending = RESULTS_PER_PAGE * (@page - 1) + (RESULTS_PER_PAGE - 1)
+  @movies = @movies[start..ending]
+  @next_page = @page + 1
+  @prev_page = (@page - 1).abs
 end
 
 get '/' do
-    redirect "/movies"
+  redirect "/movies"
+end
+
+get '/movies?page=:page' do
+  init
+  pagination
+  erb :movie_list
 end
 
 get '/movies' do
   init
+  pagination
   erb :movie_list
 end
 

@@ -47,3 +47,7 @@ a:active {
     color: #ff55cc;
     text-decoration: underline;
 }
+
+#title a {
+  color: #000;
+}

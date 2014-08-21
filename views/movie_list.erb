@@ -1,4 +1,4 @@
-<h2>Movie Listings:</h2>
+<h2 id="title"><a href="/">Movie Listings:</a></h2>
 <table>
   <tr class="top">
     <td>Available Titles</td>
@@ -9,3 +9,5 @@
     </tr>
   <% end %>
 </table>
+
+<p><a href="/movies?page=<%= @prev_page %>"><< Back 20</a> || <a href="/movies?page=<%= @next_page %>">Next 20 >></a></p>
