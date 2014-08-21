@@ -1,7 +1,5 @@
 require 'sinatra'
-require 'sinatra/reloader'
 require 'csv'
-require 'pry'
 
 RESULTS_PER_PAGE = 20
 
@@ -25,12 +23,19 @@ def init
 end
 
 def pagination
+  if @prev_page == 0
+    @page = 2
+  end
+
   @page = (params[:page] || 1).to_i
   start = RESULTS_PER_PAGE * (@page - 1)
   ending = RESULTS_PER_PAGE * (@page - 1) + (RESULTS_PER_PAGE - 1)
   @movies = @movies[start..ending]
   @next_page = @page + 1
   @prev_page = (@page - 1).abs
+  if @prev_page == 0
+    @prev_page = 1
+  end
 end
 
 get '/' do
